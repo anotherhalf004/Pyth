@@ -1,14 +1,14 @@
 from pypdf import PdfReader,PdfWriter
 
-reader = PdfReader("4th SEM HALL TICKET.pdf")
-sample_reader = PdfReader("sample.pdf")
+reader = PdfReader("sample.pdf")
+
 meta = reader.metadata
 print(meta)
 print(len(reader.pages))
 
 page =reader.pages[0]
-text = page.extract_text()  # Text from page 1
-# print(text)
+text = page.extract_text(0)  
+# print(text)                       # Text from page 1
 
 #- - - Extract text from all pages by looping - - -#
 full_text =""
@@ -19,17 +19,17 @@ for page in reader.pages:
 ###------ SPLITTING PDF INTO MULTIPLE FILES ---------###
 
 
-for i , page in enumerate(sample_reader.pages):
+for i , page in enumerate(reader.pages):
     sample_writer = PdfWriter()
     sample_writer.add_page(page)
     with open(f'page_{i+1}.pdf' , 'wb') as f:
         sample_writer.write(f)
 
+###------- MERGING PDFs ---------###
 
-    
-
-
-
-
+merger =PdfWriter()
+for pdf in ["page_1.pdf","page_2.pdf","page_3.pdf","page_4.pdf","page_5.pdf"]:
+    merger.append(pdf)
+merger.write("Merged.pdf")
 
 
