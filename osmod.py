@@ -20,9 +20,8 @@ print(s.getcwd())
 
 
 # cmd = 'time'
-# # print(s.system(cmd))
+# print(s.system(cmd))
 
 
 # with open("new.md", "w") as f:
 #     f.write("Again new file !")
-s.chdir('py')        
