@@ -13,7 +13,7 @@ import math
 print(dir(math))
 print(math.exp , type(math.exp))
 
-from import1 import welcome,meep # or from import1 import 
+from starter_files.import1 import welcome,meep # or from import1 import 
 welcome()
 print(meep)
 
